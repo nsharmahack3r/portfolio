@@ -480,6 +480,101 @@ img, svg { display: block; max-width: 100%; }
   font-size: 0.92rem;
 }
 
+/* Ask AI */
+.ask-ai-lead {
+  color: var(--text-dim);
+  font-size: 1.02rem;
+  max-width: 620px;
+  margin: 0 0 36px;
+}
+
+.ai-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.ai-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  background: transparent;
+  color: var(--text);
+  font-family: inherit;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.ai-card:hover,
+.ai-card:focus-visible {
+  border-color: var(--text);
+  transform: translateY(-2px);
+}
+
+.ai-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+.ai-mark svg {
+  height: 16px;
+  width: auto;
+  max-width: 18px;
+  display: block;
+}
+
+.ai-name {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.ai-desc {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+.ask-ai-note {
+  margin: 24px 0 0;
+  color: var(--text-dim);
+  font-size: 0.82rem;
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translate(-50%, 12px);
+  background: var(--accent);
+  color: var(--accent-contrast);
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 200;
+  max-width: 90vw;
+  text-align: center;
+}
+
+.toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
 /* Contact */
 .contact-section {
   text-align: center;

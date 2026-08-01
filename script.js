@@ -51,6 +51,46 @@
   // Footer year
   document.getElementById('year').textContent = new Date().getFullYear();
 
+  // Ask AI
+  const PROFILE_URL = 'https://nabhya.dartbucket.com/';
+  const ASK_PROMPT = `I'd like to learn about Nabhya Sharma, a full-stack engineer (Flutter, Node.js, AI & computer vision). Please look up and read ${PROFILE_URL}, then give me a concise summary of their background, skills, and experience. I'll ask follow-up questions after that.`;
+
+  const AI_TARGETS = {
+    claude: (q) => `https://claude.ai/new?q=${q}`,
+    chatgpt: (q) => `https://chatgpt.com/?q=${q}`,
+    perplexity: (q) => `https://www.perplexity.ai/search?q=${q}`,
+    gemini: () => 'https://gemini.google.com/app',
+  };
+
+  const toast = document.getElementById('toast');
+  let toastTimer;
+  const showToast = (message) => {
+    if (!toast) return;
+    toast.textContent = message;
+    toast.classList.add('is-visible');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 3200);
+  };
+
+  document.querySelectorAll('.ai-card').forEach((card) => {
+    card.addEventListener('click', () => {
+      const buildUrl = AI_TARGETS[card.dataset.ai];
+      if (!buildUrl) return;
+
+      const url = buildUrl(encodeURIComponent(ASK_PROMPT));
+      window.open(url, '_blank', 'noopener,noreferrer');
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard
+          .writeText(ASK_PROMPT)
+          .then(() => showToast('Prompt copied — paste it if the chat opens empty.'))
+          .catch(() => showToast('Opened in a new tab — copy the prompt manually if needed.'));
+      } else {
+        showToast('Opened in a new tab — copy the prompt manually if needed.');
+      }
+    });
+  });
+
   // Reveal on scroll
   const revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
