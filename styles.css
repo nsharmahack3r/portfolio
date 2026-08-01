@@ -299,7 +299,26 @@ img, svg { display: block; max-width: 100%; }
   font-size: 0.95rem;
 }
 
-.about-facts a { text-decoration: underline; text-underline-offset: 2px; }
+.about-facts li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: var(--text-dim);
+}
+
+.about-icon {
+  flex-shrink: 0;
+  width: 17px;
+  height: 17px;
+  margin-top: 2px;
+  color: var(--text-dim);
+}
+
+.about-facts a {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
 
 .stack {
   margin-top: 72px;
