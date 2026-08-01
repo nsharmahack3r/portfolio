@@ -56,10 +56,10 @@
   const ASK_PROMPT = `I'd like to learn about Nabhya Sharma, a full-stack engineer (Flutter, Node.js, AI & computer vision). Please look up and read ${PROFILE_URL}, then give me a concise summary of their background, skills, and experience. I'll ask follow-up questions after that.`;
 
   const AI_TARGETS = {
+    perplexity: (q) => `https://www.perplexity.ai/search?q=${q}`,
     claude: (q) => `https://claude.ai/new?q=${q}`,
     chatgpt: (q) => `https://chatgpt.com/?q=${q}`,
-    perplexity: (q) => `https://www.perplexity.ai/search?q=${q}`,
-    gemini: () => 'https://gemini.google.com/app',
+    grok: () => 'https://grok.com',
   };
 
   const toast = document.getElementById('toast');
