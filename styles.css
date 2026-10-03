@@ -499,6 +499,12 @@ img, svg { display: block; max-width: 100%; }
   font-size: 0.92rem;
 }
 
+.misc-block p a {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 /* YouTube */
 .yt-header {
   display: flex;
